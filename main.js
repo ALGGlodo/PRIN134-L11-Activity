@@ -16,5 +16,30 @@ function moveTarget() {
   target.style.top = `${randomY}px`;
 }
 
+function Score() {
+  score++;
+  scoreBoard.textContent = `Score: ${score}`;
+}
+
+target.addEventListener('click', (e) => {
+  e.preventDefault();
+  Score(); 
+  moveTarget();
+});
+
+target.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  Score(); 
+  moveTarget();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'F1') { 
+    score = 0; 
+    scoreBoard.textContent = `Score: ${score}`; 
+    event.preventDefault();
+  }
+});
+
 // Initial target position
 moveTarget();
